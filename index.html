@@ -1,0 +1,111 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>MusicTour AI — Travel Agent for Musicians</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="app-shell">
+      <header class="hero">
+        <div>
+          <p class="badge">Single-page app · no server required</p>
+          <h1>🎵 MusicTour AI Travel Agent</h1>
+          <p class="subtitle">Find musician-friendly flight + hotel deals across the United States and Canada.</p>
+        </div>
+        <div class="hero-glow" aria-hidden="true"></div>
+      </header>
+
+      <main class="grid">
+        <section class="card controls">
+          <h2>Tour Planner</h2>
+          <p class="muted">Tune your trip profile for your band and gear.</p>
+
+          <div class="form-grid">
+            <label>
+              Origin (IATA)
+              <input id="origin" maxlength="3" value="YYZ" />
+            </label>
+            <label>
+              Destination (IATA)
+              <input id="destination" maxlength="3" value="LAX" />
+            </label>
+            <label>
+              Hotel City Code
+              <input id="hotelCity" maxlength="3" value="LAX" />
+            </label>
+            <label>
+              Tour Focus
+              <select id="country">
+                <option value="US">United States</option>
+                <option value="CA">Canada</option>
+              </select>
+            </label>
+            <label>
+              Genre
+              <select id="genre"></select>
+            </label>
+            <label>
+              Travelers
+              <input id="travelers" type="number" min="1" max="12" value="4" />
+            </label>
+            <label>
+              Checked Bags
+              <input id="bags" type="number" min="0" max="20" value="6" />
+            </label>
+            <label>
+              Instruments
+              <input id="instruments" type="number" min="0" max="20" value="4" />
+            </label>
+          </div>
+
+          <div class="toggles">
+            <label><input id="redeye" type="checkbox" /> Accept red-eye flights</label>
+            <label><input id="lateCheckout" type="checkbox" checked /> Need late checkout</label>
+          </div>
+
+          <button id="searchBtn">Search best deals</button>
+        </section>
+
+        <section class="results-col">
+          <section class="card summary" id="summaryCard">
+            <h2>Deal Summary</h2>
+            <p class="muted">No search yet. Click <strong>Search best deals</strong>.</p>
+          </section>
+
+          <section class="card">
+            <div class="section-title-row">
+              <h2>Best Flight Deals</h2>
+              <span class="pill">Ranked for musicians</span>
+            </div>
+            <div id="flightResults" class="list"></div>
+          </section>
+
+          <section class="card">
+            <div class="section-title-row">
+              <h2>Best Hotel Deals</h2>
+              <span class="pill">Budget + comfort</span>
+            </div>
+            <div id="hotelResults" class="list"></div>
+          </section>
+        </section>
+      </main>
+    </div>
+
+    <template id="itemTemplate">
+      <article class="result-item">
+        <div>
+          <h3></h3>
+          <p class="meta"></p>
+        </div>
+        <div class="price"></div>
+      </article>
+    </template>
+
+    <script src="app.js"></script>
+  </body>
+</html>
