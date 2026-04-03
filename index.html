@@ -15,7 +15,7 @@
         <div>
           <p class="badge">Single-page app · no server required</p>
           <h1>🎵 MusicTour AI Travel Agent</h1>
-          <p class="subtitle">Compares real travel websites and ranks musician-friendly deals for US/Canada tours.</p>
+          <p class="subtitle">Find musician-friendly flight + hotel deals across the United States and Canada.</p>
         </div>
         <div class="hero-glow" aria-hidden="true"></div>
       </header>
@@ -23,26 +23,20 @@
       <main class="grid">
         <section class="card controls">
           <h2>Tour Planner</h2>
-          <p class="muted">Pick airports, dates, and band needs. We'll score real-site options.</p>
+          <p class="muted">Tune your trip profile for your band and gear.</p>
 
           <div class="form-grid">
-            <label>Origin Airport<select id="origin"></select></label>
-            <label>Destination Airport<select id="destination"></select></label>
             <label>
-              Departure date
-              <input id="departDate" type="date" />
+              Origin (IATA)
+              <input id="origin" maxlength="3" value="YYZ" />
             </label>
             <label>
-              Return date
-              <input id="returnDate" type="date" />
+              Destination (IATA)
+              <input id="destination" maxlength="3" value="LAX" />
             </label>
             <label>
-              Check-in date
-              <input id="checkInDate" type="date" />
-            </label>
-            <label>
-              Check-out date
-              <input id="checkOutDate" type="date" />
+              Hotel City Code
+              <input id="hotelCity" maxlength="3" value="LAX" />
             </label>
             <label>
               Tour Focus
@@ -75,7 +69,6 @@
           </div>
 
           <button id="searchBtn">Search best deals</button>
-          <p id="statusText" class="muted small"></p>
         </section>
 
         <section class="results-col">
@@ -86,16 +79,16 @@
 
           <section class="card">
             <div class="section-title-row">
-              <h2>Best Flight Offers</h2>
-              <span class="pill">Real website links</span>
+              <h2>Best Flight Deals</h2>
+              <span class="pill">Ranked for musicians</span>
             </div>
             <div id="flightResults" class="list"></div>
           </section>
 
           <section class="card">
             <div class="section-title-row">
-              <h2>Best Hotel Offers</h2>
-              <span class="pill">Real website links</span>
+              <h2>Best Hotel Deals</h2>
+              <span class="pill">Budget + comfort</span>
             </div>
             <div id="hotelResults" class="list"></div>
           </section>
@@ -108,7 +101,6 @@
         <div>
           <h3></h3>
           <p class="meta"></p>
-          <a class="deal-link" target="_blank" rel="noopener noreferrer">Open offer ↗</a>
         </div>
         <div class="price"></div>
       </article>
